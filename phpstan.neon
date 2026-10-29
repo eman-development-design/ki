@@ -1,0 +1,9 @@
+parameters:
+    # SEE: https://phpstan.org/user-guide/rule-levels
+    level: 6
+    paths:
+        - src/
+    excludePaths:
+        - tests/
+        - vendor/
+        - src/Kernel.php

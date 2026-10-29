@@ -1,0 +1,19 @@
+name: Pull Request Task
+on:
+  pull_request
+jobs:
+  Testing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout codebase
+        uses: actions/checkout@v7
+      - name: Setup PHP 🐘
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{secrets.PHP_VERSION}}
+          tools: composer
+          coverage: pcov
+      - name: Install Dependencies
+        run: composer install --no-interaction --prefer-dist --no-progress
+      - name: Run tests
+        run: composer run-script test:unit

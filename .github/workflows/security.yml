@@ -1,0 +1,24 @@
+name: Security & Dependency Audit
+on:
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: '0 0 * * 1'  # Every Monday morning
+jobs:
+  security-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout codebase
+        uses: actions/checkout@v7
+      - name: Setup PHP 🐘
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{secrets.PHP_VERSION}}
+          tools: composer
+      - name: Install dependencies 📦️
+        run: composer install --no-dev --prefer-dist
+      - name: Run Composer Audit ⚠️
+        run: composer audit --no-dev
+        # Fails the build if any known vulnerability is found
+      - name: Check for outdated packages 🔎
+        run: composer outdated --direct --minor-only

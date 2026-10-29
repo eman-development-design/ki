@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block WebpageTitle %}{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    {% block stylesheets %}{% endblock %}
+</head>
+<body>
+    <ul>
+        {% for nav in navigation %}
+            <li>
+                {% if nav.externalLink %}
+                    <a href="{{ nav.link }}" id="{{ nav.id }}" target="_blank">{{ nav.title }}</a>
+                {% else %}
+                    <a href="{{ nav.link }}" id="{{ nav.id }}">{{ nav.title }}</a>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+
+{% block body %}{% endblock %}
+</body>
+</html>

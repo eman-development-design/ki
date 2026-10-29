@@ -1,0 +1,69 @@
+{
+    "global": {
+        "siteTitle": "My Site",
+        "siteUrl": "https://example.com",
+        "navigation": [
+            {
+                "id": "home",
+                "link": "/",
+                "title": "Home",
+                "externalLink": ""
+            },
+            {
+                "id": "about",
+                "link": "/about/",
+                "title": "About Us",
+                "externalLink": ""
+            },
+            {
+                "id": "portfolio",
+                "link": "/portfolio/",
+                "title": "Portfolio",
+                "externalLink": ""
+            },
+            {
+                "id": "projects",
+                "link": "/projects/",
+                "title": "Projects",
+                "externalLink": ""
+            },
+            {
+                "id": "blog",
+                "link": "https://blog.mysite.com",
+                "title": "Blog",
+                "externalLink": true
+            },
+            {
+                "id": "contact",
+                "link": "#",
+                "title": "Contact Me",
+                "externalLink": ""
+            }
+        ]
+    },
+    "pages": {
+        "/index": {
+            "title": "Home"
+        },
+        "/about": {
+            "title": "About Us",
+            "timelineList": [
+                {
+                    "title": "Founded",
+                    "date": "April 2015",
+                    "description": "Founded New Business."
+                },
+                {
+                    "title": "Won Award",
+                    "date": "October 2017",
+                    "description": "Won best employer 2017."
+                },
+                {
+                    "title": "Acquired ABC Company",
+                    "date": "July 2019",
+                    "description": "Acquired ABC Company to add more features to our platform."
+                }
+            ]
+        }
+    }
+}
